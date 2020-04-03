@@ -1,7 +1,7 @@
 
 // DOM ELEMENTS
 
-//Selecting the menus - this selects the menu based on it's ID:
+//Selecting the menus
 
 let selectMain = document.getElementById('attendees');
 let selectSub = document.getElementById('audience');
