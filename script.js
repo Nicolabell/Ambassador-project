@@ -7,9 +7,10 @@ let selectMain = document.getElementById('attendees');
 let selectSub = document.getElementById('audience');
 
 
+
+
 // DATA OBJECTS
 
-// 
 
 let eventSize = {
 	small: ['Select your audience', 'Permaculture event', 'Some knowledge of permaculture', 'New to permaculture'],
@@ -40,7 +41,10 @@ let resourceList = [
 
 
 
+
+
 // UI CONTROLLER
+
 
 //Event when event size is selected = next drop down is populated
 
@@ -57,24 +61,25 @@ selectMain.addEventListener('change', function(){
 // Gets the array from the option that was selected
 Array.from(selected).forEach(function(el){
 
-let option = new Option(el, el);
-//add child option in sub menu
+  let option = new Option(el, el);
+  //add child option in sub menu
 
-selectSub.appendChild(option);
+  selectSub.appendChild(option);
+
+  });
 
 });
-
-});
-
 
 
 // function to take the two selections and recommend the appropriate reource pack
 
- // 1. Event listener for when the secont menu selection has happened
+ // 1. Event listener for when the second menu selection has happened
 
 selectSub.addEventListener('change', function(){
-  console.log(selectSub[this.value]); // need to instead pass the selections into the selection switch statement
+  console.log(selectSub.options[this.value]); // Doesn't work but... / will need to instead pass the selections into the selection switch statement
+
 });
+
 
 // 2. Function that takes in the selections and returns case
 function selectionResults (a, b) {
@@ -95,5 +100,5 @@ function selectionResults (a, b) {
 
 
 // Return the suggestion to the DOM
-document.getElementById("results").innerHTML = "The most best thing would be " + resource;
+//document.getElementById("results").innerHTML = "The most best thing would be " + resource;
 
