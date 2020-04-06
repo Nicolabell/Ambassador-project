@@ -76,7 +76,7 @@ Array.from(selected).forEach(function(el){
  // 1. Event listener for when the second menu selection has happened
 
 selectSub.addEventListener('change', function(){
-  console.log(selectSub.options[this.value]); // Doesn't work but... / will need to instead pass the selections into the selection switch statement
+  console.log(selectSub.option[this.value]); // Doesn't work but... / will need to instead pass the selections into the selection switch statement
 
 });
 
