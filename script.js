@@ -73,20 +73,37 @@ Array.from(selected).forEach(function(el){
 
 // function to take the two selections and recommend the appropriate reource pack
 
- // 1. Event listener for when the second menu selection has happened
+ // 1. Event listener for when the  menu selections happen
+
+    //Menu 1. selection
+
+ let selectionOne;
+
+ selectMain.addEventListener('change', function(){
+
+  selectionOne = selectMain.options[selectMain.selectedIndex].value;
+
+  console.log(selectionOne); // only selects the first option??
+
+});
+
+    //Menu 2. selection
+
+let selectionTwo;
 
 selectSub.addEventListener('change', function(){
-  console.log(selectSub.option[this.value]); // Doesn't work but... / will need to instead pass the selections into the selection switch statement
+
+  selectionTwo = selectSub.options[selectSub.selectedIndex].value;
+
+  console.log(selectionTwo); 
 
 });
 
 
-// 2. Function that takes in the selections and returns case
+// 3. Function that takes in the selections and returns case
 function selectionResults (a, b) {
   // Case for different resource pack selections
-   let firstSelect = a; //not yet sure how to do this bit
-   let secondSelect = b;
-    switch (firstSelect && secondSelect) {
+    switch ( a && b ) {
       case 0:
         resource = "small resource from resourceLIst";
         break;
