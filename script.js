@@ -7,10 +7,7 @@ let selectMain = document.getElementById('attendees');
 let selectSub = document.getElementById('audience');
 
 
-
-
 // DATA OBJECTS
-
 
 let eventSize = {
 	small: ['Select your audience', 'Permaculture event', 'Some knowledge of permaculture', 'New to permaculture'],
@@ -42,7 +39,6 @@ let resourceList = [
 
 
 
-
 // UI CONTROLLER
 
 
@@ -52,14 +48,14 @@ selectMain.addEventListener('change', function(){
 	// Select option
   let selected = eventSize[this.value];
   
-  // remove sub menu options with while loop>
+  //remove additional sub menu options with while loop
   while(selectSub.options.length > 0) {
   
   selectSub.options.remove(0);
-  }
+ }
 
-// Gets the array from the option that was selected
-Array.from(selected).forEach(function(el){
+ // Gets the array from the option that was selected
+  Array.from(selected).forEach(function(el){
 
   let option = new Option(el, el);
   //add child option in sub menu
