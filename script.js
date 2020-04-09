@@ -58,7 +58,8 @@ selectMain.addEventListener('change', function(){
   Array.from(selected).forEach(function(el){
 
   let option = new Option(el, el);
-  //add child option in sub menu
+  
+  //add new child options in to the sub menu
 
   selectSub.appendChild(option);
 
@@ -93,13 +94,42 @@ selectSub.addEventListener('change', function(){
 
   console.log(selectionTwo); 
 
+   //This is a conditional ternary operator to codify the combinations of choices. 
+
+    function selectionResults (a, b) {
+    return selectionOne === 'small' && selectionTwo === 'Permaculture event'? 0
+           : selectionOne === 'small' && selectionTwo === 'Some knowledge of permaculture' ? 1
+           : selectionOne === 'small' && selectionTwo === 'New to permaculture' ? 2
+           : selectionOne === 'medium' && selectionTwo === 'Permaculture event' ? 3
+           : selectionOne === 'medium' && selectionTwo === 'Some knowledge of permaculture' ? 4
+           : selectionOne === 'medium' && selectionTwo === 'New to permaculture' ? 5
+           : selectionOne === 'large' && selectionTwo === 'Permaculture event' ? 3
+           : selectionOne === 'large' && selectionTwo === 'Some knowledge of permaculture' ? 4
+           : selectionOne === 'large' && selectionTwo === 'New to permaculture' ? 5
+           : selectionOne === 'medium' && selectionTwo === 'Permaculture event' ? 6
+           : selectionOne === 'medium' && selectionTwo === 'Some knowledge of permaculture' ? 7
+           : selectionOne === 'medium' && selectionTwo === 'New to permaculture' ? 8
+           : selectionOne === 'massive' && selectionTwo === 'Permaculture event' ? 9
+           : selectionOne === 'massive' && selectionTwo === 'Some knowledge of permaculture' ? 10
+           : selectionOne === 'massive' && selectionTwo === 'New to permaculture' ? 11
+           : 'Nothing selected';
+  };
+
+  console.log(selectionResults(selectionOne, selectionTwo));
+
+
 });
 
 
 // 3. Function that takes in the selections and returns case
-function selectionResults (a, b) {
+
+//This is a conditional ternary operator to codify the combinations of choices. 
+
+
+
+function displayResource (combined) {
   // Case for different resource pack selections
-    switch ( a && b ) {
+    switch ( combined ) {
       case 0:
         resource = "small resource from resourceLIst";
         break;
