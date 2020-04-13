@@ -40,4 +40,8 @@ a:hover {
 a:active {
     color: blue;
 }
- 
+
+.pack-image {
+ width: 50%;
+ min-width: 300px;
+}

@@ -6,6 +6,10 @@
 let selectMain = document.getElementById('attendees');
 let selectSub = document.getElementById('audience');
 
+//Results message
+
+let results = document.getElementById('results');
+
 
 // DATA OBJECTS
 
@@ -18,12 +22,13 @@ let eventSize = {
 
 // could the above use a loop to populate the data based on the size + audience of the event? how do we keep it simple stupid?
 
-let resourceList = [
+const resourceList = [
   {
    pack: "10-20",
-   description: "A pack for small events",
+   title: "Small resource pack",
+   description: "A pack for small courses and events attended by people who have some prior knowledge of permaculture",
    img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
-  },
+  }, 
   {
    pack: "20-50",
    description: "A pack for medium events",
@@ -36,7 +41,7 @@ let resourceList = [
   }
 ];
 
-
+console.log(resourceList[2].img);
 
 
 // UI CONTROLLER
@@ -134,7 +139,10 @@ function displayResource (combined) {
   // Case for different resource pack selections
     switch ( combined ) {
       case 0:
-        console.log("small resource from resourceLIst");
+        results.innerHTML += `<p><b>${resourceList[combined].title}</b></p>
+        <p><img src="${resourceList[combined].img}"  
+        alt="resource pack for such an event" class="pack-image"></p>
+        <p>${resourceList[combined].description}</p>`;
         break;
       case 1:
         console.log("big resource");
@@ -155,7 +163,6 @@ function displayResource (combined) {
         console.log("Sorry you haven't chosen anything");
     } 
 };
-
 
 //displayResource(both); this returns a case
 
