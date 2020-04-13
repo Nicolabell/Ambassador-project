@@ -87,6 +87,7 @@ selectMain.addEventListener('change', function(){
     //Menu 2. selection
 
 let selectionTwo;
+let both;
 
 selectSub.addEventListener('change', function(){
 
@@ -115,7 +116,10 @@ selectSub.addEventListener('change', function(){
            : 'Nothing selected';
   };
 
-  console.log(selectionResults(selectionOne, selectionTwo));
+
+ both = selectionResults(selectionOne, selectionTwo);
+ return both;
+
 
 
 });
@@ -126,21 +130,34 @@ selectSub.addEventListener('change', function(){
 //This is a conditional ternary operator to codify the combinations of choices. 
 
 
-
 function displayResource (combined) {
   // Case for different resource pack selections
     switch ( combined ) {
       case 0:
-        resource = "small resource from resourceLIst";
+        console.log("small resource from resourceLIst");
         break;
       case 1:
-        resource = "big resource";
+        console.log("big resource");
         break;
+      case 2:
+        console.log("2 resource");
+        break; 
+      case 3:
+        console.log("2 resource");
+        break; 
+      case 4:
+        console.log("4 resource");
+        break; 
+      case 5:
+        console.log("5 resource");
+        break; 
       default:
-        resource = "Sorry you haven't chosen anything";
+        console.log("Sorry you haven't chosen anything");
     } 
-}
+};
 
+
+//displayResource(both); this returns a case
 
 // Return the suggestion to the DOM
 //document.getElementById("results").innerHTML = "The most best thing would be " + resource;
