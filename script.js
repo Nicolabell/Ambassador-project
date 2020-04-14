@@ -31,17 +31,42 @@ const resourceList = [
   }, 
   {
    pack: "20-50",
-   description: "A pack for medium events",
-   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
+   title: "Another small resource pack",
+   description: "A pack for small events with people who are new to permaculture",
+   img: "https://freesvg.org/img/1344190736.png"
   },
  {
    pack: "1984",
+   title: "Some more stuff for small events",
+   description: "A pack for big events",
+   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
+  },
+   {
+   pack: "1984",
+   title: "Stuff for medium sized events",
+   description: "A pack for big events",
+   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
+  },
+   {
+   pack: "1984",
+   title: "You get the idea",
+   description: "A pack for big events",
+   img: "https://as2.ftcdn.net/jpg/01/27/32/41/500_F_127324174_QSBfDhGhWtjLjJPxB6UY9dRTn6Jo3RZJ.jpg.jpg"
+  },
+   {
+   pack: "1984",
+   title: "Yes this one is for you",
+   description: "A pack for big events",
+   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
+  },
+   {
+   pack: "1984",
+   title: "This'd be perfect",
    description: "A pack for big events",
    img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
   }
 ];
 
-console.log(resourceList[2].img);
 
 
 // UI CONTROLLER
@@ -126,7 +151,6 @@ selectSub.addEventListener('change', function(){
  return both;
 
 
-
 });
 
 
@@ -139,33 +163,51 @@ function displayResource (combined) {
   // Case for different resource pack selections
     switch ( combined ) {
       case 0:
-        results.innerHTML += `<p><b>${resourceList[combined].title}</b></p>
+        results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
         <p><img src="${resourceList[combined].img}"  
         alt="resource pack for such an event" class="pack-image"></p>
         <p>${resourceList[combined].description}</p>`;
         break;
       case 1:
-        console.log("big resource");
+        results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
+        <p><img src="${resourceList[combined].img}"  
+        alt="resource pack for such an event" class="pack-image"></p>
+        <p>${resourceList[combined].description}</p>`;
         break;
       case 2:
-        console.log("2 resource");
+        results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
+        <p><img src="${resourceList[combined].img}"  
+        alt="resource pack for such an event" class="pack-image"></p>
+        <p>${resourceList[combined].description}</p>`;
         break; 
       case 3:
-        console.log("2 resource");
+        results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
+        <p><img src="${resourceList[combined].img}"  
+        alt="resource pack for such an event" class="pack-image"></p>
+        <p>${resourceList[combined].description}</p>`;
         break; 
       case 4:
-        console.log("4 resource");
+        results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
+        <p><img src="${resourceList[combined].img}"  
+        alt="resource pack for such an event" class="pack-image"></p>
+        <p>${resourceList[combined].description}</p>`;
         break; 
       case 5:
-        console.log("5 resource");
-        break; 
+        results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
+        <p><img src="${resourceList[combined].img}"  
+        alt="resource pack for such an event" class="pack-image"></p>
+        <p>${resourceList[combined].description}</p>`;
+        break;
       default:
-        console.log("Sorry you haven't chosen anything");
+        results.innerHTML = `<p><b>Sorry you havent selected ought</b></p>`;
     } 
 };
 
 //displayResource(both); this returns a case
 
 // Return the suggestion to the DOM
-//document.getElementById("results").innerHTML = "The most best thing would be " + resource;
+
+selectSub.addEventListener('change', function(){
+  displayResource(both);
+});
 
