@@ -24,45 +24,57 @@ let eventSize = {
 
 const resourceList = [
   {
-   pack: "10-20",
-   title: "Small resource pack",
-   description: "A pack for small courses and events attended by people who have some prior knowledge of permaculture",
+   pack: "10-20 Permaculture",
+   title: "Small pack for those in the know",
+   description: "A pack for small courses and events attended by people who have some prior knowledge of permaculture. Includes courses and membership info, plus ways to help share the benefits of permaculture.",
    img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
   }, 
   {
-   pack: "20-50",
-   title: "Another small resource pack",
+   pack: "10-20 Some knowledge",
+   title: "Small pack with tips on what to learn next",
    description: "A pack for small events with people who are new to permaculture",
    img: "https://freesvg.org/img/1344190736.png"
   },
  {
-   pack: "1984",
-   title: "Some more stuff for small events",
-   description: "A pack for big events",
+   pack: "10-20 New",
+   title: "Small pack for those brand new to permaculture",
+   description: "A pack for small events including beginners resources",
    img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
   },
    {
-   pack: "1984",
-   title: "Stuff for medium sized events",
-   description: "A pack for big events",
+   pack: "20-50 Permaculture",
+   title: "Medium pack for those in the know",
+   description: "A medium sized pack for courses and events attended by people who have some prior knowledge of permaculture. Includes courses and membership info, plus ways to help share the benefits of permaculture.",
    img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
   },
    {
-   pack: "1984",
+   pack: "20-50 Some knowledge",
+   title: "Medium pack for those who know a bit",
+   description: "This medium sized pack includes further resources for people who know a bit but what to learn more",
+   img: "https://as2.ftcdn.net/jpg/01/27/32/41/500_F_127324174_QSBfDhGhWtjLjJPxB6UY9dRTn6Jo3RZJ.jpg.jpg"
+  },
+  {
+   pack: "20-50 New",
    title: "You get the idea",
-   description: "A pack for big events",
+   description: "A pack for small events including beginners resources",
    img: "https://as2.ftcdn.net/jpg/01/27/32/41/500_F_127324174_QSBfDhGhWtjLjJPxB6UY9dRTn6Jo3RZJ.jpg.jpg"
   },
    {
-   pack: "1984",
+   pack: "50-100 Permaculture",
    title: "Yes this one is for you",
    description: "A pack for big events",
    img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
   },
    {
-   pack: "1984",
-   title: "This'd be perfect",
-   description: "A pack for big events",
+   pack: "50-100 some knowledge",
+   title: "Big pack for those who know a bit",
+   description: "This big resource pack includes further resources for people who know a bit but what to learn more",
+   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
+  },
+  {
+   pack: "50-100 new",
+   title: "Up to 100 people - new to permaculture",
+   description: "A pack for bigger events including beginners resources",
    img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
   }
 ];
@@ -88,7 +100,7 @@ selectMain.addEventListener('change', function(){
   Array.from(selected).forEach(function(el){
 
   let option = new Option(el, el);
-  
+
   //add new child options in to the sub menu
 
   selectSub.appendChild(option);
@@ -156,7 +168,9 @@ selectSub.addEventListener('change', function(){
 
 // 3. Function that takes in the selections and returns case
 
-//This is a conditional ternary operator to codify the combinations of choices. 
+/*This is a conditional ternary operator to codify the combinations of choices. 
+Can either use the default resource for each case based, or amend to use a specific set of
+ resource data. */
 
 
 function displayResource (combined) {
@@ -187,7 +201,7 @@ function displayResource (combined) {
         <p>${resourceList[combined].description}</p>`;
         break; 
       case 4:
-        results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
+       results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
         <p><img src="${resourceList[combined].img}"  
         alt="resource pack for such an event" class="pack-image"></p>
         <p>${resourceList[combined].description}</p>`;
@@ -199,7 +213,7 @@ function displayResource (combined) {
         <p>${resourceList[combined].description}</p>`;
         break;
       default:
-        results.innerHTML = `<p><b>Sorry you havent selected ought</b></p>`;
+        results.innerHTML = `<p><b>Sorry you havent selected a thing that exists yet, I will build it soon</b></p>`;
     } 
 };
 
