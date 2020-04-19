@@ -180,37 +180,39 @@ function displayResource (combined) {
         results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
         <p><img src="${resourceList[combined].img}"  
         alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p>`;
+        <p>${resourceList[combined].description}</p> <button class="order">Order this pack</button>`;
         break;
       case 1:
         results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
         <p><img src="${resourceList[combined].img}"  
         alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p>`;
+        <p>${resourceList[combined].description}</p>
+        <button class="order">Order this pack</button>`; 
         break;
       case 2:
         results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
         <p><img src="${resourceList[combined].img}"  
         alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p>`;
+        <p>${resourceList[combined].description}</p> <button class="order">Order this pack</button>`;
         break; 
       case 3:
         results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
         <p><img src="${resourceList[combined].img}"  
         alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p>`;
+        <p>${resourceList[combined].description}</p>
+        <button class="order">Order this pack</button>`;
         break; 
       case 4:
        results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
         <p><img src="${resourceList[combined].img}"  
         alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p>`;
+        <p>${resourceList[combined].description}</p><button class="order">Order this pack</button>`;
         break; 
       case 5:
         results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
         <p><img src="${resourceList[combined].img}"  
         alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p>`;
+        <p>${resourceList[combined].description}</p><button class="order">Order this pack</button>`;
         break;
       default:
         results.innerHTML = `<p><b>Sorry you havent selected a thing that exists yet, I will build it soon</b></p>`;
