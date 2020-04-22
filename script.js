@@ -79,6 +79,27 @@ const resourceList = [
   }
 ];
 
+const resources = [ // standard pack, tagged by audience, counted in units
+  {
+    title: "Join the Permaculture Association",
+    type: "banner",
+    audiences: ["new", "someKnowl", "permaculture"],
+    count: 1
+  },
+  {
+    title: "An intro to forest gardening",
+    type: "leaflet",
+    audiences: ["someKnowl", "permaculture"],
+    count: 10
+  },
+  {
+    title: "Permaculture Ethics - an intro",
+    type: "leaflet",
+    audiences: ["new", "someKnowl"],
+    count: 10
+  },
+
+];
 
 
 // UI CONTROLLER
@@ -175,44 +196,44 @@ Can either use the default resource for each case based, or amend to use a speci
 
 function displayResource (combined) {
   // Case for different resource pack selections
-    switch ( combined ) {
+    switch (combined) {
       case 0:
         results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
         <p><img src="${resourceList[combined].img}"  
         alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p> <button class="order">Order this pack</button>`;
+        <p>${resourceList[combined].description}</p> <button class="order" id="${[combined]}">Order this pack</button>`;
         break;
       case 1:
         results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
         <p><img src="${resourceList[combined].img}"  
         alt="resource pack for such an event" class="pack-image"></p>
         <p>${resourceList[combined].description}</p>
-        <button class="order">Order this pack</button>`; 
+        <button class="order" id="${[combined]}">Order this pack</button>`; 
         break;
       case 2:
         results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
         <p><img src="${resourceList[combined].img}"  
         alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p> <button class="order">Order this pack</button>`;
+        <p>${resourceList[combined].description}</p> <button class="order" id="${[combined]}">Order this pack</button>`;
         break; 
       case 3:
         results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
         <p><img src="${resourceList[combined].img}"  
         alt="resource pack for such an event" class="pack-image"></p>
         <p>${resourceList[combined].description}</p>
-        <button class="order">Order this pack</button>`;
+        <button class="order" id="${[combined]}">Order this pack</button>`;
         break; 
       case 4:
        results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
         <p><img src="${resourceList[combined].img}"  
         alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p><button class="order">Order this pack</button>`;
+        <p>${resourceList[combined].description}</p><button class="order" id="${[combined]}">Order this pack</button>`;
         break; 
       case 5:
         results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
         <p><img src="${resourceList[combined].img}"  
         alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p><button class="order">Order this pack</button>`;
+        <p>${resourceList[combined].description}</p><button class="order" id="${[combined]}">Order this pack</button>`;
         break;
       default:
         results.innerHTML = `<p><b>Sorry you havent selected a thing that exists yet, I will build it soon</b></p>`;
@@ -223,7 +244,33 @@ function displayResource (combined) {
 
 // Return the suggestion to the DOM
 
-selectSub.addEventListener('change', function(){
-  displayResource(both);
-});
+ selectSub.addEventListener('change', function(){
+   displayResource(both);
+ });
 
+
+// function that calculates and stores the resource pack based on the id of the button generated
+
+function buttonGet () {
+  let button = document.getElementsByClassName('order')[0].id;
+  console.log(button);
+  
+
+  if ( button == 0 || button == 1 || button == 2) {
+    console.log("small details");
+
+  } else if (button == 3 || button == 4 || button == 7 ) {
+    console.log("medium details"); 
+  } else if ( button == 6 || button == 7 || button == 8 )  {
+    console.log("large details");
+  } else if ( button == 9 || button == 10 || button == 11 )  {
+    console.log("massive details");
+  } else {
+    console.log("mnopes");
+
+  }; 
+  
+//get the resources list, loop through, if the right audience isnt in the list then skip, otherwise X by the right amount depending on the case
+  //Spread the new data into an array or table?
+
+};
