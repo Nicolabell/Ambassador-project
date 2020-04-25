@@ -51,13 +51,13 @@ const resourceList = [
    pack: "20-50 Some knowledge",
    title: "Medium pack for those who know a bit",
    description: "This medium sized pack includes further resources for people who know a bit but what to learn more",
-   img: "https://as2.ftcdn.net/jpg/01/27/32/41/500_F_127324174_QSBfDhGhWtjLjJPxB6UY9dRTn6Jo3RZJ.jpg.jpg"
+   img: "https://as2.ftcdn.net/jpg/01/27/32/41/500_F_127324174_QSBfDhGhWtjLjJPxB6UY9dRTn6Jo3RZJ.jpg"
   },
   {
    pack: "20-50 New",
    title: "You get the idea",
    description: "A pack for small events including beginners resources",
-   img: "https://as2.ftcdn.net/jpg/01/27/32/41/500_F_127324174_QSBfDhGhWtjLjJPxB6UY9dRTn6Jo3RZJ.jpg.jpg"
+   img: "https://as2.ftcdn.net/jpg/01/27/32/41/500_F_127324174_QSBfDhGhWtjLjJPxB6UY9dRTn6Jo3RZJ.jpg"
   },
    {
    pack: "50-100 Permaculture",
@@ -75,6 +75,24 @@ const resourceList = [
    pack: "50-100 new",
    title: "Up to 100 people - new to permaculture",
    description: "A pack for bigger events including beginners resources",
+   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
+  },
+  {
+   pack: "100+ Permaculture",
+   title: "Yes this one is for you",
+   description: "A pack for big events",
+   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
+  },
+   {
+   pack: "100+ people - knowledge",
+   title: "Big pack for those who know a bit",
+   description: "This huge resource pack includes further resources for people who know a bit but what to learn more",
+   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
+  },
+  {
+   pack: "100+ people - new ",
+   title: "100+ people - new to permaculture",
+   description: "A pack for huge events including beginners resources",
    img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
   }
 ];
@@ -115,6 +133,10 @@ selectMain.addEventListener('change', function(){
   while(selectSub.options.length > 0) {
   
   selectSub.options.remove(0);
+
+  results.innerHTML = `<p>We suggest....</p>`;
+
+
  }
 
  // Gets the array from the option that was selected
@@ -167,12 +189,9 @@ selectSub.addEventListener('change', function(){
            : selectionOne === 'medium' && selectionTwo === 'Permaculture event' ? 3
            : selectionOne === 'medium' && selectionTwo === 'Some knowledge of permaculture' ? 4
            : selectionOne === 'medium' && selectionTwo === 'New to permaculture' ? 5
-           : selectionOne === 'large' && selectionTwo === 'Permaculture event' ? 3
-           : selectionOne === 'large' && selectionTwo === 'Some knowledge of permaculture' ? 4
-           : selectionOne === 'large' && selectionTwo === 'New to permaculture' ? 5
-           : selectionOne === 'medium' && selectionTwo === 'Permaculture event' ? 6
-           : selectionOne === 'medium' && selectionTwo === 'Some knowledge of permaculture' ? 7
-           : selectionOne === 'medium' && selectionTwo === 'New to permaculture' ? 8
+           : selectionOne === 'large' && selectionTwo === 'Permaculture event' ? 6
+           : selectionOne === 'large' && selectionTwo === 'Some knowledge of permaculture' ? 7
+           : selectionOne === 'large' && selectionTwo === 'New to permaculture' ? 8
            : selectionOne === 'massive' && selectionTwo === 'Permaculture event' ? 9
            : selectionOne === 'massive' && selectionTwo === 'Some knowledge of permaculture' ? 10
            : selectionOne === 'massive' && selectionTwo === 'New to permaculture' ? 11
@@ -214,7 +233,8 @@ function displayResource (combined) {
         results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
         <p><img src="${resourceList[combined].img}"  
         alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p> <button class="order" id="${[combined]}">Order this pack</button>`;
+        <p>${resourceList[combined].description}</p> 
+        <button class="order" id="${[combined]}">Order this pack</button>`;
         break; 
       case 3:
         results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
@@ -224,16 +244,67 @@ function displayResource (combined) {
         <button class="order" id="${[combined]}">Order this pack</button>`;
         break; 
       case 4:
-       results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
+        results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
         <p><img src="${resourceList[combined].img}"  
         alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p><button class="order" id="${[combined]}">Order this pack</button>`;
+        <p>${resourceList[combined].description}</p>
+        <button class="order" id="${[combined]}">Order this pack</button>`;
         break; 
       case 5:
         results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
         <p><img src="${resourceList[combined].img}"  
         alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p><button class="order" id="${[combined]}">Order this pack</button>`;
+        <p>${resourceList[combined].description}</p>
+        <button class="order" id="${[combined]}">Order this pack</button>`;
+        break;
+      case 6:
+        results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
+        <p><img src="${resourceList[combined].img}"  
+        alt="resource pack for such an event" class="pack-image"></p>
+        <p>${resourceList[combined].description}</p>
+        <button class="order" id="${[combined]}">Order this pack</button>`;
+        break;
+      case 7:
+        results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
+        <p><img src="${resourceList[combined].img}"  
+        alt="resource pack for such an event" class="pack-image"></p>
+        <p>${resourceList[combined].description}</p>
+        <button class="order" id="${[combined]}">Order this pack</button>`;
+        break;
+      case 8:
+        results.innerHTML = `<p><img src="${resourceList[combined].img}"  
+        alt="resource pack for such an event" class="pack-image"></p>
+        <p>${resourceList[combined].description}</p>
+        <button class="order" id="${[combined]}">Order this pack</button>`;
+      case 9:
+        results.innerHTML = `<p><img src="${resourceList[combined].img}"  
+        alt="resource pack for such an event" class="pack-image"></p>
+        <p>${resourceList[combined].description}</p>
+        <button class="order" id="${[combined]}">Order this pack</button>`;
+        break;
+     case 10:
+        results.innerHTML = `<p><img src="${resourceList[combined].img}"  
+        alt="resource pack for such an event" class="pack-image"></p>
+        <p>${resourceList[combined].description}</p>
+        <button class="order" id="${[combined]}">Order this pack</button>`;
+        break;
+     case 11:
+        results.innerHTML = `<p><img src="${resourceList[combined].img}"  
+        alt="resource pack for such an event" class="pack-image"></p>
+        <p>${resourceList[combined].description}</p>
+        <button class="order" id="${[combined]}">Order this pack</button>`;
+        break;
+     case 12:
+        results.innerHTML = `<p><img src="${resourceList[combined].img}"  
+        alt="resource pack for such an event" class="pack-image"></p>
+        <p>${resourceList[combined].description}</p>
+        <button class="order" id="${[combined]}">Order this pack</button>`;
+        break;
+     case 13:
+        results.innerHTML = `<p><img src="${resourceList[combined].img}"  
+        alt="resource pack for such an event" class="pack-image"></p>
+        <p>${resourceList[combined].description}</p>
+        <button class="order" id="${[combined]}">Order this pack</button>`;
         break;
       default:
         results.innerHTML = `<p><b>Sorry you havent selected a thing that exists yet, I will build it soon</b></p>`;
@@ -249,24 +320,50 @@ function displayResource (combined) {
  });
 
 
+// function to create a copy of the resources array to create new packing list array
+  function packingListCreate () {
+  let packingList = Array.from(resources);
+  console.log(packingList);
+  };
+
+
 // function that calculates and stores the resource pack based on the id of the button generated
 
 function buttonGet () {
   let button = document.getElementsByClassName('order')[0].id;
   console.log(button);
-  
 
+  
   if ( button == 0 || button == 1 || button == 2) {
     console.log("small details");
-
-  } else if (button == 3 || button == 4 || button == 7 ) {
-    console.log("medium details"); 
+     packingListCreate();
+     console.log(packingList); 
+  } else if (button == 3 || button == 4 || button == 5 ) {
+    console.log("medium details");
+    packingListCreate();
+    for (let i = 0; i < packingList.length; i++) {
+     packingList[i].count *= 2; // This is where the unit increase is made dependent on the event size 
+     console.log(packingList[i].count);
+    };
+    console.log(packingList); 
   } else if ( button == 6 || button == 7 || button == 8 )  {
     console.log("large details");
+    packingListCreate();
+     for (let i = 0; i < packingList.length; i++) {
+      packingList[i].count *= 3; 
+      console.log(packingList[i].count);
+    };
+    console.log(packingList); 
   } else if ( button == 9 || button == 10 || button == 11 )  {
     console.log("massive details");
+    packingListCreate();
+     for (let i = 0; i < packingList.length; i++) {
+      packingList[i].count *= 4; 
+      console.log(packingList[i].count);
+    };
+    console.log(packingList); 
   } else {
-    console.log("mnopes");
+    console.log("none selected");
 
   }; 
   
@@ -274,3 +371,6 @@ function buttonGet () {
   //Spread the new data into an array or table?
 
 };
+
+
+// Event listener on button 
