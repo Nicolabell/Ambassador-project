@@ -5,6 +5,12 @@
   text-align: center;
 }
 
+body {
+  /*display: inline-block;*/
+}
+
+
+
 h1, h2, h3, h4, h5 {
   font-family: 'Raleway', sans-serif;
   font-weight: 200;
@@ -22,8 +28,10 @@ p, label, option, select {
   color: #424242;
 }
 
-.results {
+#results {
+  display: inline-block;
   width: 60%;
+
 }
 
 /* unvisited link */
