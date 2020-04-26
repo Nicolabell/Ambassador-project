@@ -134,6 +134,7 @@ selectMain.addEventListener('change', function(){
   
   selectSub.options.remove(0);
 
+  //remove previous selection from results display
   results.innerHTML = `<p>We suggest....</p>`;
 
 
@@ -307,8 +308,19 @@ function displayResource (combined) {
         <button class="order" id="${[combined]}">Order this pack</button>`;
         break;
       default:
-        results.innerHTML = `<p><b>Sorry you havent selected a thing that exists yet, I will build it soon</b></p>`;
+        results.innerHTML = `<p>We suggest...unless it doesnt exit</p>`;
     } 
+
+  let newbutton = document.getElementsByTagName('button')[0];      //can re-use this later on, maybe return it? uhhh
+  console.log(newbutton);
+  newbutton.addEventListener("click", function(){
+  console.log("clickwerks");
+  while (packingList.length > 0) {
+    packingList.pop();
+  } // clear packing list so it doesnt calculate again? doesnt work
+  buttonGet();
+ })
+
 };
 
 //displayResource(both); this returns a case
@@ -320,57 +332,51 @@ function displayResource (combined) {
  });
 
 
-// function to create a copy of the resources array to create new packing list array
-  function packingListCreate () {
-  let packingList = Array.from(resources);
-  console.log(packingList);
-  };
-
-
 // function that calculates and stores the resource pack based on the id of the button generated
+let packingList = [];
 
 function buttonGet () {
   let button = document.getElementsByClassName('order')[0].id;
-  console.log(button);
+  
 
+// Create new array and multiply resources based on event size
+ function packingListCreate(multiple) {
+  packingList = [];
+       packingList = resources.map(x => { 
+      return resources.map(x => {
+      return {
+      ...x,                    // This spreads the new objects into the new array
+      count: x.count * multiple   // This multiplies the count of each object by a given number
+      };
+     });
+    });
+};
   
   if ( button == 0 || button == 1 || button == 2) {
     console.log("small details");
-     packingListCreate();
-     console.log(packingList); 
+     packingListCreate(1);
+     console.log(packingList);
+     alert(`You are ordering thihing ${packingList}`);
   } else if (button == 3 || button == 4 || button == 5 ) {
     console.log("medium details");
-    packingListCreate();
-    for (let i = 0; i < packingList.length; i++) {
-     packingList[i].count *= 2; // This is where the unit increase is made dependent on the event size 
-     console.log(packingList[i].count);
-    };
+    packingListCreate(2);  // This is where the resources in each pack are multiplied
     console.log(packingList); 
   } else if ( button == 6 || button == 7 || button == 8 )  {
     console.log("large details");
-    packingListCreate();
-     for (let i = 0; i < packingList.length; i++) {
-      packingList[i].count *= 3; 
-      console.log(packingList[i].count);
-    };
+     packingListCreate(3);  // This is where the resources in each pack are multiplied
     console.log(packingList); 
   } else if ( button == 9 || button == 10 || button == 11 )  {
     console.log("massive details");
-    packingListCreate();
-     for (let i = 0; i < packingList.length; i++) {
-      packingList[i].count *= 4; 
-      console.log(packingList[i].count);
-    };
-    console.log(packingList); 
+      packingListCreate(5);  // This is where the resources in each pack are multiplied
+    console.log(packingList);  
   } else {
     console.log("none selected");
 
   }; 
-  
-//get the resources list, loop through, if the right audience isnt in the list then skip, otherwise X by the right amount depending on the case
-  //Spread the new data into an array or table?
+
 
 };
 
 
-// Event listener on button 
+//get the resources list, loop through, if the right audience isnt in the list then skip, otherwise X by the right amount depending on the case
+  //Spread the new data into an array or table?
