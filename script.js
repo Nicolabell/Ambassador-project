@@ -221,7 +221,8 @@ function displayResource (combined) {
         results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
         <p><img src="${resourceList[combined].img}"  
         alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p> <button class="order" id="${[combined]}">Order this pack</button>`;
+        <p>${resourceList[combined].description}</p> 
+        <button class="order" id="${[combined]}">Order this pack</button>`;
         break;
       case 1:
         results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
@@ -325,52 +326,68 @@ function displayResource (combined) {
 
 //displayResource(both); this returns a case
 
-// Return the suggestion to the DOM
+ // Return the suggestion to the DOM
 
  selectSub.addEventListener('change', function(){
    displayResource(both);
  });
 
 
-// function that calculates and stores the resource pack based on the id of the button generated
+// ******* function that calculates and stores the resource pack based on the id of the button generated *******
 let packingList = [];
 
 function buttonGet () {
   let button = document.getElementsByClassName('order')[0].id;
   
 
-// Create new array and multiply resources based on event size
+ // 1. Create new array and multiply resources based on event size
  function packingListCreate(multiple) {
   packingList = [];
-       packingList = resources.map(x => { 
-      return resources.map(x => {
+       packingList = resources.map(x =>  {
       return {
-      ...x,                    // This spreads the new objects into the new array
+      ...x,                        // This spreads the new objects into the new array
       count: x.count * multiple   // This multiplies the count of each object by a given number
       };
-     });
     });
+
 };
-  
+
+
+ // 2. function to show confirmation pop up with appropriate packing list displayed
+
+function orderConf () {
+  let r = confirm(`You are about to order ${JSON.stringify(packingList)}, please confirm`);
+  if (r == true) {
+    console.log("You pressed OK!");
+  } else {
+    console.log("You pressed Cancel!");
+  }
+
+};
+
+
+
+ // 3. Run through case 
+
   if ( button == 0 || button == 1 || button == 2) {
-    console.log("small details");
+     console.log("small details");
      packingListCreate(1);
      console.log(packingList);
-     alert(`You are ordering thihing ${packingList}`);
+     orderConf();
   } else if (button == 3 || button == 4 || button == 5 ) {
-    console.log("medium details");
-    packingListCreate(2);  // This is where the resources in each pack are multiplied
-    console.log(packingList); 
+     console.log("medium details");
+     packingListCreate(2);  // This is where the resources in each pack are multiplied
+     orderConf();
   } else if ( button == 6 || button == 7 || button == 8 )  {
-    console.log("large details");
+     console.log("large details");
      packingListCreate(3);  // This is where the resources in each pack are multiplied
-    console.log(packingList); 
+     orderConf();
   } else if ( button == 9 || button == 10 || button == 11 )  {
-    console.log("massive details");
-      packingListCreate(5);  // This is where the resources in each pack are multiplied
-    console.log(packingList);  
+     console.log("massive details");
+     packingListCreate(5);  // This is where the resources in each pack are multiplied
+     orderConf();
   } else {
-    console.log("none selected");
+     console.log("none selected");
 
   }; 
 
@@ -380,3 +397,12 @@ function buttonGet () {
 
 //get the resources list, loop through, if the right audience isnt in the list then skip, otherwise X by the right amount depending on the case
   //Spread the new data into an array or table?
+function orderConf () {
+  let r = confirm("Press a button!");
+  if (r == true) {
+    console.log("You pressed OK!");
+  } else {
+    console.log("You pressed Cancel!");
+  }
+
+};
