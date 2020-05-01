@@ -2,17 +2,16 @@
 // DOM ELEMENTS
 
 //Selecting the menus
-
 let selectMain = document.getElementById('attendees');
 let selectSub = document.getElementById('audience');
 
 //Results message
-
 let results = document.getElementById('results');
 
 
 // DATA OBJECTS
 
+//Event data
 let eventSize = {
 	small: ['Select your audience', 'Permaculture event', 'Some knowledge of permaculture', 'New to permaculture'],
   medium: ['Select your audience', 'Permaculture event', 'Some knowledge of permaculture', 'New to permaculture'],
@@ -22,6 +21,7 @@ let eventSize = {
 
 // could the above use a loop to populate the data based on the size + audience of the event? how do we keep it simple stupid?
 
+//Resource pack data
 const resourceList = [
   {
    pack: "10-20 Permaculture",
@@ -97,7 +97,8 @@ const resourceList = [
   }
 ];
 
-const resources = [ // standard pack, tagged by audience, counted in units
+// Individual resources data
+const resources = [ 
   {
     title: "Join the Permaculture Association",
     type: "banner",
@@ -124,8 +125,7 @@ const resources = [ // standard pack, tagged by audience, counted in units
 
 
 //Event when event size is selected = next drop down is populated
-
-selectMain.addEventListener('change', function(){
+selectMain.addEventListener('change', function() {
 	// Select option
   let selected = eventSize[this.value];
   
@@ -140,13 +140,12 @@ selectMain.addEventListener('change', function(){
 
  }
 
- // Gets the array from the option that was selected
-  Array.from(selected).forEach(function(el){
+  // Gets the array from the option that was selected
+  Array.from(selected).forEach(function(el) {
 
   let option = new Option(el, el);
 
   //add new child options in to the sub menu
-
   selectSub.appendChild(option);
 
   });
@@ -154,15 +153,12 @@ selectMain.addEventListener('change', function(){
 });
 
 
-// function to take the two selections and recommend the appropriate reource pack
+ // function to take the two selections and recommend the appropriate resource pack
 
- // 1. Event listener for when the  menu selections happen
-
-    //Menu 1. selection
-
+ // Menu 1. selection - Event listener for when the menu selections happen
  let selectionOne;
 
- selectMain.addEventListener('change', function(){
+ selectMain.addEventListener('change', function() {
 
   selectionOne = selectMain.options[selectMain.selectedIndex].value;
 
@@ -170,12 +166,13 @@ selectMain.addEventListener('change', function(){
 
 });
 
-    //Menu 2. selection
+  
+  //Menu 2. selection
 
 let selectionTwo;
 let both;
 
-selectSub.addEventListener('change', function(){
+selectSub.addEventListener('change', function() {
 
   selectionTwo = selectSub.options[selectSub.selectedIndex].value;
 
@@ -203,7 +200,6 @@ selectSub.addEventListener('change', function(){
  both = selectionResults(selectionOne, selectionTwo);
  return both;
 
-
 });
 
 
@@ -215,106 +211,63 @@ Can either use the default resource for each case based, or amend to use a speci
 
 
 function displayResource (combined) {
+  // variable to contain results message
+  let resultsHTML = `<p><b>${resourceList[combined].title}</b></p>
+      <p><img src="${resourceList[combined].img}"  
+      alt="resource pack for such an event" class="pack-image"></p>
+      <p>${resourceList[combined].description}</p> 
+      <button class="order" id="${[combined]}">Order this pack</button>`;
   // Case for different resource pack selections
-    switch (combined) {
-      case 0:
-        results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
-        <p><img src="${resourceList[combined].img}"  
-        alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p> 
-        <button class="order" id="${[combined]}">Order this pack</button>`;
-        break;
-      case 1:
-        results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
-        <p><img src="${resourceList[combined].img}"  
-        alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p>
-        <button class="order" id="${[combined]}">Order this pack</button>`; 
-        break;
-      case 2:
-        results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
-        <p><img src="${resourceList[combined].img}"  
-        alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p> 
-        <button class="order" id="${[combined]}">Order this pack</button>`;
-        break; 
-      case 3:
-        results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
-        <p><img src="${resourceList[combined].img}"  
-        alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p>
-        <button class="order" id="${[combined]}">Order this pack</button>`;
-        break; 
-      case 4:
-        results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
-        <p><img src="${resourceList[combined].img}"  
-        alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p>
-        <button class="order" id="${[combined]}">Order this pack</button>`;
-        break; 
-      case 5:
-        results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
-        <p><img src="${resourceList[combined].img}"  
-        alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p>
-        <button class="order" id="${[combined]}">Order this pack</button>`;
-        break;
-      case 6:
-        results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
-        <p><img src="${resourceList[combined].img}"  
-        alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p>
-        <button class="order" id="${[combined]}">Order this pack</button>`;
-        break;
-      case 7:
-        results.innerHTML = `<p><b>${resourceList[combined].title}</b></p>
-        <p><img src="${resourceList[combined].img}"  
-        alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p>
-        <button class="order" id="${[combined]}">Order this pack</button>`;
-        break;
-      case 8:
-        results.innerHTML = `<p><img src="${resourceList[combined].img}"  
-        alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p>
-        <button class="order" id="${[combined]}">Order this pack</button>`;
-      case 9:
-        results.innerHTML = `<p><img src="${resourceList[combined].img}"  
-        alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p>
-        <button class="order" id="${[combined]}">Order this pack</button>`;
-        break;
-     case 10:
-        results.innerHTML = `<p><img src="${resourceList[combined].img}"  
-        alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p>
-        <button class="order" id="${[combined]}">Order this pack</button>`;
-        break;
-     case 11:
-        results.innerHTML = `<p><img src="${resourceList[combined].img}"  
-        alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p>
-        <button class="order" id="${[combined]}">Order this pack</button>`;
-        break;
-     case 12:
-        results.innerHTML = `<p><img src="${resourceList[combined].img}"  
-        alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p>
-        <button class="order" id="${[combined]}">Order this pack</button>`;
-        break;
-     case 13:
-        results.innerHTML = `<p><img src="${resourceList[combined].img}"  
-        alt="resource pack for such an event" class="pack-image"></p>
-        <p>${resourceList[combined].description}</p>
-        <button class="order" id="${[combined]}">Order this pack</button>`;
-        break;
-      default:
-        results.innerHTML = `<p>We suggest...unless it doesnt exit</p>`;
-    } 
+  switch (combined) {
+    case 0:
+      results.innerHTML = resultsHTML;
+      break;
+    case 1:
+      results.innerHTML = resultsHTML; 
+      break;
+    case 2:
+      results.innerHTML = resultsHTML; 
+      break;
+    case 3:
+      results.innerHTML = resultsHTML; 
+      break;
+    case 4:
+      results.innerHTML = resultsHTML; 
+      break; 
+    case 5:
+      results.innerHTML = resultsHTML; 
+      break;
+    case 6:
+      results.innerHTML = resultsHTML; 
+      break;
+    case 7:
+      results.innerHTML = resultsHTML; 
+      break;
+    case 8:
+      results.innerHTML = resultsHTML; 
+      break;
+    case 9:
+      results.innerHTML = resultsHTML; 
+      break;
+    case 10:
+      results.innerHTML = resultsHTML; 
+      break;
+    case 11:
+      results.innerHTML = resultsHTML; 
+      break;
+    case 12:
+      results.innerHTML = resultsHTML; 
+      break;
+    case 13:
+      results.innerHTML = resultsHTML; 
+      break;
+    default:
+      results.innerHTML = `<p>We suggest...unless it doesnt exit</p>`;
+} 
 
   let newbutton = document.getElementsByTagName('button')[0];      //can re-use this later on, maybe return it? uhhh
   console.log(newbutton);
-  newbutton.addEventListener("click", function(){
+  newbutton.addEventListener("click", function() {
   console.log("clickwerks");
   while (packingList.length > 0) {
     packingList.pop();
@@ -328,7 +281,7 @@ function displayResource (combined) {
 
  // Return the suggestion to the DOM
 
- selectSub.addEventListener('change', function(){
+ selectSub.addEventListener('change', function() {
    displayResource(both);
  });
 
@@ -337,7 +290,7 @@ function displayResource (combined) {
 let packingList = [];
 
 function buttonGet () {
-  let button = document.getElementsByClassName('order')[0].id;
+  let button = parseInt(document.getElementsByClassName('order')[0].id);
   
 
  // 1. Create new array and multiply resources based on event size
@@ -369,20 +322,20 @@ function orderConf () {
 
  // 3. Run through case 
 
-  if ( button == 0 || button == 1 || button == 2) {
+  if (button === 0 || button === 1 || button === 2) {
      console.log("small details");
      packingListCreate(1);
      console.log(packingList);
      orderConf();
-  } else if (button == 3 || button == 4 || button == 5 ) {
+  } else if (button === 3 || button === 4 || button === 5) {
      console.log("medium details");
      packingListCreate(2);  // This is where the resources in each pack are multiplied
      orderConf();
-  } else if ( button == 6 || button == 7 || button == 8 )  {
+  } else if (button === 6 || button === 7 || button === 8)  {
      console.log("large details");
      packingListCreate(3);  // This is where the resources in each pack are multiplied
      orderConf();
-  } else if ( button == 9 || button == 10 || button == 11 )  {
+  } else if (button === 9 || button === 10 || button === 11)  {
      console.log("massive details");
      packingListCreate(5);  // This is where the resources in each pack are multiplied
      orderConf();
@@ -397,12 +350,4 @@ function orderConf () {
 
 //get the resources list, loop through, if the right audience isnt in the list then skip, otherwise X by the right amount depending on the case
   //Spread the new data into an array or table?
-function orderConf () {
-  let r = confirm("Press a button!");
-  if (r == true) {
-    console.log("You pressed OK!");
-  } else {
-    console.log("You pressed Cancel!");
-  }
 
-};
