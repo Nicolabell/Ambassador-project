@@ -103,19 +103,36 @@ const resources = [
     title: "Join the Permaculture Association",
     type: "banner",
     audiences: ["new", "someKnowl", "permaculture"],
-    count: 1
+    count: 1,
+    weight: 3200
   },
   {
     title: "An intro to forest gardening",
     type: "leaflet",
     audiences: ["someKnowl", "permaculture"],
-    count: 10
+    count: 10,
+    weight: 93.5
   },
   {
     title: "Permaculture Ethics - an intro",
     type: "leaflet",
     audiences: ["new", "someKnowl"],
-    count: 10
+    count: 10,
+    weight: 75.2
+  },
+  {
+    title: "WeLoveLiving post cards",
+    type: "postcard pack",
+    audiences: ["new", "someKnowl"],
+    count: 20,
+    weight: 180.4
+  },
+  {
+    title: "GROW leaflet",
+    type: "Leaflet",
+    audiences: ["new", "someKnowl"],
+    count: 10,
+    weight: 87
   },
 
 ];
@@ -268,7 +285,6 @@ function displayResource (combined) {
   let newbutton = document.getElementsByTagName('button')[0];      //can re-use this later on, maybe return it? uhhh
   console.log(newbutton);
   newbutton.addEventListener("click", function() {
-  console.log("clickwerks");
   while (packingList.length > 0) {
     packingList.pop();
   } // clear packing list so it doesnt calculate again? doesnt work
@@ -286,6 +302,19 @@ function displayResource (combined) {
  });
 
 
+
+// function calculates weight of all resources in pack
+ let packWeight = 0;
+// function weightCalc () {
+//  for (let i = 0; i > packingList.length; i++) {
+    //  console.log(packingList[i].weight);
+     // packWeight = 2;
+  //  };
+// };
+
+
+
+
 // ******* function that calculates and stores the resource pack based on the id of the button generated *******
 let packingList = [];
 
@@ -301,48 +330,65 @@ function buttonGet () {
       ...x,                        // This spreads the new objects into the new array
       count: x.count * multiple   // This multiplies the count of each object by a given number
       };
-    });
 
-};
+
+    });
+  
+}; 
 
 
  // 2. function to show confirmation pop up with appropriate packing list displayed
 
 function orderConf () {
+
   let r = confirm(`You are about to order ${JSON.stringify(packingList)}, please confirm`);
   if (r == true) {
-    console.log("You pressed OK!");
+    console.log("The leaflet pack is on order");
   } else {
-    console.log("You pressed Cancel!");
+    console.log("The order is cancelled");
   }
 
 };
 
 
+// loops through packing list to add up weight
+function weightCalc (packingList) {
+  for(let i = 0; i < packingList.length; i++) {
+    console.log("do something");
+  }
+}
+
+ 
 
  // 3. Run through case 
 
   if (button === 0 || button === 1 || button === 2) {
      console.log("small details");
      packingListCreate(1);
+     weightCalc();
      console.log(packingList);
+     console.log(packWeight);
      orderConf();
   } else if (button === 3 || button === 4 || button === 5) {
      console.log("medium details");
      packingListCreate(2);  // This is where the resources in each pack are multiplied
+     //weightCalc();
      orderConf();
   } else if (button === 6 || button === 7 || button === 8)  {
      console.log("large details");
      packingListCreate(3);  // This is where the resources in each pack are multiplied
+     //weightCalc();
      orderConf();
   } else if (button === 9 || button === 10 || button === 11)  {
      console.log("massive details");
      packingListCreate(5);  // This is where the resources in each pack are multiplied
+     //weightCalc();
      orderConf();
   } else {
      console.log("none selected");
 
   }; 
+
 
 
 };
