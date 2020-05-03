@@ -283,7 +283,6 @@ function displayResource (combined) {
 } 
 
   let newbutton = document.getElementsByTagName('button')[0];      //can re-use this later on, maybe return it? uhhh
-  console.log(newbutton);
   newbutton.addEventListener("click", function() {
   while (packingList.length > 0) {
     packingList.pop();
@@ -303,20 +302,9 @@ function displayResource (combined) {
 
 
 
-// function calculates weight of all resources in pack
- let packWeight = 0;
-// function weightCalc () {
-//  for (let i = 0; i > packingList.length; i++) {
-    //  console.log(packingList[i].weight);
-     // packWeight = 2;
-  //  };
-// };
-
-
-
-
 // ******* function that calculates and stores the resource pack based on the id of the button generated *******
 let packingList = [];
+let packWeight = 0;
 
 function buttonGet () {
   let button = parseInt(document.getElementsByClassName('order')[0].id);
@@ -351,38 +339,42 @@ function orderConf () {
 };
 
 
-// loops through packing list to add up weight
-function weightCalc (packingList) {
+// 3. function calculates weight of all resources in pack
+function weightCalc () {
   for(let i = 0; i < packingList.length; i++) {
-    console.log("do something");
+     console.log(packingList[i].weight);
+     packWeight += packingList[i].weight;
   }
 }
 
  
 
- // 3. Run through case 
+ // 4. Run through case 
 
   if (button === 0 || button === 1 || button === 2) {
      console.log("small details");
      packingListCreate(1);
-     weightCalc();
+     weightCalc(packingList);
      console.log(packingList);
      console.log(packWeight);
      orderConf();
   } else if (button === 3 || button === 4 || button === 5) {
      console.log("medium details");
      packingListCreate(2);  // This is where the resources in each pack are multiplied
-     //weightCalc();
+     weightCalc(packingList);
+     console.log(packWeight);
      orderConf();
   } else if (button === 6 || button === 7 || button === 8)  {
      console.log("large details");
      packingListCreate(3);  // This is where the resources in each pack are multiplied
-     //weightCalc();
+     weightCalc(packingList);
+     console.log(packWeight);
      orderConf();
   } else if (button === 9 || button === 10 || button === 11)  {
      console.log("massive details");
      packingListCreate(5);  // This is where the resources in each pack are multiplied
-     //weightCalc();
+     weightCalc(packingList);
+     console.log(packWeight);
      orderConf();
   } else {
      console.log("none selected");
