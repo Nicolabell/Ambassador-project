@@ -11,20 +11,28 @@ body {
 
 
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: 'Raleway', sans-serif;
-  font-weight: 200px;
+  font-weight: 200;
   color: #171616;
 
 }
 
-h1{
+h1 {
+  font-size: 20px;
   font-weight: 700;
 }
 
-p, label, option, select {
+p,
+label,
+option,
+select {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   color: #424242;
 }
 
@@ -56,8 +64,8 @@ a:active {
 }
 
 .pack-image {
- width: 40%;
- min-width: 300px;
+ width: 130px;
+ min-width: 100px;
  max-width: 400px;
 }
 

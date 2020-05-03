@@ -49,19 +49,19 @@ const resourceList = [
   },
    {
    pack: "20-50 Some knowledge",
-   title: "Medium pack for those who know a bit",
+   title: "Medium pack - up to fifty people, for those who know a bit",
    description: "This medium sized pack includes further resources for people who know a bit but what to learn more",
    img: "https://as2.ftcdn.net/jpg/01/27/32/41/500_F_127324174_QSBfDhGhWtjLjJPxB6UY9dRTn6Jo3RZJ.jpg"
   },
   {
    pack: "20-50 New",
-   title: "You get the idea",
+   title: "Up to fifty people new to permaculture",
    description: "A pack for small events including beginners resources",
    img: "https://as2.ftcdn.net/jpg/01/27/32/41/500_F_127324174_QSBfDhGhWtjLjJPxB6UY9dRTn6Jo3RZJ.jpg"
   },
    {
    pack: "50-100 Permaculture",
-   title: "Yes this one is for you",
+   title: "A pack for up to 100 people who know about permaculture",
    description: "A pack for big events",
    img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
   },
@@ -79,7 +79,7 @@ const resourceList = [
   },
   {
    pack: "100+ Permaculture",
-   title: "Yes this one is for you",
+   title: "Big pack for 100+ permaculture crowd",
    description: "A pack for big events",
    img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
   },
@@ -331,9 +331,9 @@ function orderConf () {
 
   let r = confirm(`You are about to order ${JSON.stringify(packingList)}, please confirm`);
   if (r == true) {
-    console.log("The leaflet pack is on order");
+    alert("The leaflet pack is on order");
   } else {
-    console.log("The order is cancelled");
+    alert("The order is cancelled");
   }
 
 };
@@ -342,7 +342,6 @@ function orderConf () {
 // 3. function calculates weight of all resources in pack
 function weightCalc () {
   for(let i = 0; i < packingList.length; i++) {
-     console.log(packingList[i].weight);
      packWeight += packingList[i].weight;
   }
 }
