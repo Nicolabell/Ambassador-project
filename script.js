@@ -197,7 +197,7 @@ selectSub.addEventListener('change', function() {
 
    //This is a conditional ternary operator to codify the combinations of choices. 
 
-    function selectionResults (a, b) {
+    function selectionResults(a, b) {
     return selectionOne === 'small' && selectionTwo === 'Permaculture event'? 0
            : selectionOne === 'small' && selectionTwo === 'Some knowledge of permaculture' ? 1
            : selectionOne === 'small' && selectionTwo === 'New to permaculture' ? 2
@@ -227,7 +227,7 @@ Can either use the default resource for each case based, or amend to use a speci
  resource data. */
 
 
-function displayResource (combined) {
+function displayResource(combined) {
   // variable to contain results message
   let resultsHTML = `<p><b>${resourceList[combined].title}</b></p>
       <p><img src="${resourceList[combined].img}"  
@@ -327,7 +327,7 @@ function buttonGet () {
 
  // 2. function to show confirmation pop up with appropriate packing list displayed
 
-function orderConf () {
+function orderConf() {
 
   let r = confirm(`You are about to order ${JSON.stringify(packingList)}, please confirm`);
   if (r == true) {
@@ -340,7 +340,7 @@ function orderConf () {
 
 
 // 3. function calculates weight of all resources in pack
-function weightCalc () {
+function weightCalc() {
   for(let i = 0; i < packingList.length; i++) {
      packWeight += packingList[i].weight;
   }
