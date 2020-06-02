@@ -27,101 +27,113 @@ const resourceList = [
    pack: "10-20 Permaculture",
    title: "Small pack for those in the know",
    description: "A pack for small courses and events attended by people who have some prior knowledge of permaculture. Includes courses and membership info, plus ways to help share the benefits of permaculture.",
-   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
+   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg",
+   audience: "permaculture"
   }, 
   {
    pack: "10-20 Some knowledge",
    title: "Small pack with tips on what to learn next",
    description: "A pack for small events with people who are new to permaculture",
-   img: "https://freesvg.org/img/1344190736.png"
+   img: "https://freesvg.org/img/1344190736.png",
+   audience: "someKnowl"
   },
  {
    pack: "10-20 New",
    title: "Small pack for those brand new to permaculture",
    description: "A pack for small events including beginners resources",
-   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
+   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg",
+   audience: "new"
   },
    {
    pack: "20-50 Permaculture",
    title: "Medium pack for those in the know",
    description: "A medium sized pack for courses and events attended by people who have some prior knowledge of permaculture. Includes courses and membership info, plus ways to help share the benefits of permaculture.",
-   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
+   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg",
+   audience: "permaculture"
   },
    {
    pack: "20-50 Some knowledge",
    title: "Medium pack - up to fifty people, for those who know a bit",
    description: "This medium sized pack includes further resources for people who know a bit but what to learn more",
-   img: "https://as2.ftcdn.net/jpg/01/27/32/41/500_F_127324174_QSBfDhGhWtjLjJPxB6UY9dRTn6Jo3RZJ.jpg"
+   img: "https://as2.ftcdn.net/jpg/01/27/32/41/500_F_127324174_QSBfDhGhWtjLjJPxB6UY9dRTn6Jo3RZJ.jpg",
+   audience: "someKnowl"
   },
   {
    pack: "20-50 New",
    title: "Up to fifty people new to permaculture",
    description: "A pack for small events including beginners resources",
-   img: "https://as2.ftcdn.net/jpg/01/27/32/41/500_F_127324174_QSBfDhGhWtjLjJPxB6UY9dRTn6Jo3RZJ.jpg"
+   img: "https://as2.ftcdn.net/jpg/01/27/32/41/500_F_127324174_QSBfDhGhWtjLjJPxB6UY9dRTn6Jo3RZJ.jpg",
+   audience: "new"
   },
    {
    pack: "50-100 Permaculture",
    title: "A pack for up to 100 people who know about permaculture",
    description: "A pack for big events",
-   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
+   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg",
+   audience: "permaculture"
   },
    {
    pack: "50-100 some knowledge",
    title: "Big pack for those who know a bit",
    description: "This big resource pack includes further resources for people who know a bit but what to learn more",
-   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
+   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg",
+   audience: "someKnowl"
   },
   {
    pack: "50-100 new",
    title: "Up to 100 people - new to permaculture",
    description: "A pack for bigger events including beginners resources",
-   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
+   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg",
+   audience: "new"
   },
   {
    pack: "100+ Permaculture",
    title: "Big pack for 100+ permaculture crowd",
    description: "A pack for big events",
-   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
+   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg",
+   audience: "permaculture"
   },
    {
    pack: "100+ people - knowledge",
    title: "Big pack for those who know a bit",
    description: "This huge resource pack includes further resources for people who know a bit but what to learn more",
-   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
+   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg",
+   audience: "someKnowl"
   },
   {
    pack: "100+ people - new ",
    title: "100+ people - new to permaculture",
    description: "A pack for huge events including beginners resources",
-   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg"
+   img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg",
+   audience: "new"
   }
 ];
 
 // Individual resources data
 const resources = [ 
   {
-    title: "Join the Permaculture Association",
+    title: "Join the Permaculture Association - banner",
     type: "banner",
     audiences: ["new", "someKnowl", "permaculture"],
     count: 1,
     weight: 3200
   },
   {
-    title: "An intro to forest gardening",
+    title: "An intro to forest gardening - leaflet",
     type: "leaflet",
     audiences: ["someKnowl", "permaculture"],
     count: 10,
     weight: 93.5
   },
   {
-    title: "Permaculture Ethics - an intro",
+    title: "Permaculture Ethics, an intro - leaflet",
     type: "leaflet",
     audiences: ["new", "someKnowl"],
     count: 10,
     weight: 75.2
   },
   {
-    title: "WeLoveLiving post cards",
+    title: "WeLoveLiving - postcard set",
     type: "postcard pack",
     audiences: ["new", "someKnowl"],
     count: 20,
@@ -287,7 +299,7 @@ function displayResource(combined) {
   while (packingList.length > 0) {
     packingList.pop();
   } // clear packing list so it doesnt calculate again? doesnt work
-  buttonGet();
+  buttonGet(); //can this be deleted?
  })
 
 };
@@ -313,28 +325,28 @@ function buttonGet () {
  // 1. Create new array and multiply resources based on event size
  function packingListCreate(multiple) {
   packingList = [];
-       packingList = resources.map(x =>  {
+  //filter the resource based on audience and then map those objects to new packing list
+      packingList = resources.filter(x => x.audiences[0] === "new").map(x =>  {
       return {
-      ...x,                        // This spreads the new objects into the new array
-      count: x.count * multiple   // This multiplies the count of each object by a given number
+      ...x,                       // This spreads the new objects into the new array
+      count: x.count * multiple  // This multiplies the count of each object by a given number
       };
-
 
     });
   
 }; 
 
 
- // 2. function to show confirmation pop up with appropriate packing list displayed
+// 2. function to show appropriate packing list displayed and confirm / cancel buttons
 
 function orderConf() {
+var displayOrder;
+// Loop over packingList and display data nicely
+packingList.forEach(ordered => displayOrder +=  `<p>` + ordered.count +  ' x '  + ordered.title + `</p>`);
 
-  let r = confirm(`You are about to order ${JSON.stringify(packingList)}, please confirm`);
-  if (r == true) {
-    alert("The leaflet pack is on order");
-  } else {
-    alert("The order is cancelled");
-  }
+// Return variable as displayed message
+results.innerHTML = `<p>You are about to order:</p> <p>${displayOrder} Please confirm</p>
+<button id="confirm" role="button">Confirm</button><button id="cancel" role="button">Cancel</button>`;
 
 };
 
@@ -362,7 +374,7 @@ function weightCalc() {
      packingListCreate(2);  // This is where the resources in each pack are multiplied
      weightCalc(packingList);
      console.log(packWeight);
-     orderConf();
+     orderConf(packingList);
   } else if (button === 6 || button === 7 || button === 8)  {
      console.log("large details");
      packingListCreate(3);  // This is where the resources in each pack are multiplied
