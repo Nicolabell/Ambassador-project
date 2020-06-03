@@ -111,37 +111,37 @@ const resourceList = [
 
 // Individual resources data
 const resources = [ 
-  {
-    title: "Join the Permaculture Association - banner",
-    type: "banner",
+/*  {
+    title: "Join the Permaculture Association",
+    type: "Banner",
     audiences: ["new", "someKnowl", "permaculture"],
     count: 1,
     weight: 3200
-  },
+  }, */
   {
-    title: "What is permaculture? - leaflet",
-    type: "leaflet",
+    title: "What is permaculture?",
+    type: "Leaflet",
     audiences: ["new"],
     count: 10,
     weight: 93.5
   },
   {
-    title: "An intro to forest gardening - leaflet",
-    type: "leaflet",
+    title: "An intro to forest gardening",
+    type: "Leaflet",
     audiences: ["someKnowl", "permaculture"],
     count: 10,
     weight: 93.5
   },
   {
-    title: "Permaculture Ethics, an intro - leaflet",
-    type: "leaflet",
+    title: "Permaculture Ethics, an intro",
+    type: "Leaflet",
     audiences: ["new"],
     count: 10,
     weight: 75.2
   },
   {
-    title: "WeLoveLiving - postcard set",
-    type: "postcard pack",
+    title: "WeLoveLiving",
+    type: "Postcard pack",
     audiences: ["new", "someKnowl"],
     count: 20,
     weight: 180.4
@@ -369,7 +369,8 @@ function buttonGet () {
       packingList = resources.filter(x => x.audiences[0] === packAud || x.audiences[1] === packAud || x.audiences[2] === packAud).map(x =>  {
       return {
       ...x,                       // This spreads the new objects into the new array
-      count: x.count * multiple  // This multiplies the count of each object by a given number
+      count: x.count * multiple,  // This multiplies the count of each object by a given number
+      weight: x.weight * multiple // Mulitply weight by given number
       };
 
     });
@@ -382,10 +383,12 @@ function buttonGet () {
 function orderConf() {
 var displayOrder;
 // Loop over packingList and display data nicely
-packingList.forEach(ordered => displayOrder +=  `<p>` + ordered.count +  ' x '  + ordered.title + `</p>`);
+packingList.forEach(ordered => displayOrder +=  `<p>` + ordered.count +  ' x '  + ordered.title +  ' - ' + ordered.type + `</p>`);
 
 // Return variable as displayed message
-results.innerHTML = `<p>You are about to order:</p> <p>${displayOrder} </p><p><b>Please confirm</b></p>
+results.innerHTML = `<p><b>You are about to order:</b></p> <p>${displayOrder}</p>
+<br>
+<p><i>Suggested donation for postage and packing: £${postage.toFixed(2)}</i></p><p><b>Please confirm</b></p>
 <button id="confirm" role="button">Confirm</button><button id="cancel" role="button">Cancel</button>`;
 
 };
@@ -393,37 +396,56 @@ results.innerHTML = `<p>You are about to order:</p> <p>${displayOrder} </p><p><b
 
 // 3. function calculates weight of all resources in pack
 function weightCalc() {
+  packWeight = 0;
   for(let i = 0; i < packingList.length; i++) {
      packWeight += packingList[i].weight;
   }
-}
+console.log(packWeight);
+  //Cost of postage based on weight + 30g packaging
+ function postPackCalc() {
+  packWeight += 30;
+   return packWeight <= 100 ? 0.65
+          : packWeight > 100 && packWeight <= 250 ? 0.88
+          : packWeight > 250 && packWeight <= 500 ? 1.83
+          : packWeight > 500 && packWeight <= 750 ? 2.48
+          : packWeight > 750 && packWeight <= 1000 ? 3.10
+          : packWeight > 1000 && packWeight <= 2000 ? 5.20
+          : packWeight > 2000 && packWeight <= 5000 ? 8.99
+          : packWeight > 5000 && packWeight <= 10000 ? 20.25
+          : 28.55;
 
+ }
+ console.log(postPackCalc(packWeight));
+
+ postage = postPackCalc(packWeight);
+
+}
+ 
  
 
- // 4. Run through case 
-
+ // 5. Run through case 
   if (button === 0 || button === 1 || button === 2) {
      console.log("small details");
-     packingListCreate(1);
+     packingListCreate(2);
      weightCalc(packingList);
      console.log(packingList);
      console.log(packWeight);
      orderConf();
   } else if (button === 3 || button === 4 || button === 5) {
      console.log("medium details");
-     packingListCreate(2);  // This is where the resources in each pack are multiplied
+     packingListCreate(4);  // This is where the resources in each pack are multiplied
      weightCalc(packingList);
      console.log(packWeight);
      orderConf(packingList);
   } else if (button === 6 || button === 7 || button === 8)  {
      console.log("large details");
-     packingListCreate(3);  // This is where the resources in each pack are multiplied
+     packingListCreate(8);  // This is where the resources in each pack are multiplied
      weightCalc(packingList);
      console.log(packWeight);
      orderConf();
   } else if (button === 9 || button === 10 || button === 11)  {
      console.log("massive details");
-     packingListCreate(5);  // This is where the resources in each pack are multiplied
+     packingListCreate(15);  // This is where the resources in each pack are multiplied
      weightCalc(packingList);
      console.log(packWeight);
      orderConf();
