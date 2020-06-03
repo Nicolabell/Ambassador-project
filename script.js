@@ -94,7 +94,7 @@ const resourceList = [
    audience: "permaculture"
   },
    {
-   pack: "100+ people - knowledge",
+   pack: "100+ people - Someknowledge",
    title: "Big pack for those who know a bit",
    description: "This huge resource pack includes further resources for people who know a bit but what to learn more",
    img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg",
@@ -119,6 +119,13 @@ const resources = [
     weight: 3200
   },
   {
+    title: "What is permaculture? - leaflet",
+    type: "leaflet",
+    audiences: ["new"],
+    count: 10,
+    weight: 93.5
+  },
+  {
     title: "An intro to forest gardening - leaflet",
     type: "leaflet",
     audiences: ["someKnowl", "permaculture"],
@@ -128,7 +135,7 @@ const resources = [
   {
     title: "Permaculture Ethics, an intro - leaflet",
     type: "leaflet",
-    audiences: ["new", "someKnowl"],
+    audiences: ["new"],
     count: 10,
     weight: 75.2
   },
@@ -142,7 +149,28 @@ const resources = [
   {
     title: "GROW leaflet",
     type: "Leaflet",
-    audiences: ["new", "someKnowl"],
+    audiences: ["new", "someKnowl", "permaculture"],
+    count: 10,
+    weight: 87
+  },
+   {
+    title: "The Diploma in Applied Permaculture Design",
+    type: "Leaflet",
+    audiences: ["someKnowl", "permaculture"],
+    count: 10,
+    weight: 87
+  },
+   {
+    title: "What next after your Permaculture Design Course?",
+    type: "Leaflet",
+    audiences: ["someKnowl", "permaculture"],
+    count: 10,
+    weight: 87
+  },
+  {
+    title: "Become a Permaculture Ambassador",
+    type: "Leaflet",
+    audiences: ["someKnowl", "permaculture"],
     count: 10,
     weight: 87
   },
@@ -237,8 +265,6 @@ selectSub.addEventListener('change', function() {
 /*This is a conditional ternary operator to codify the combinations of choices. 
 Can either use the default resource for each case based, or amend to use a specific set of
  resource data. */
-
-
 function displayResource(combined) {
   // variable to contain results message
   let resultsHTML = `<p><b>${resourceList[combined].title}</b></p>
@@ -324,9 +350,23 @@ function buttonGet () {
 
  // 1. Create new array and multiply resources based on event size
  function packingListCreate(multiple) {
+
+  // Determin audience based on pack number
+  let packAud;
+
+  if (button === 0 || button === 3 || button === 6 || button === 9) {
+    packAud = "permaculture";
+  } else if (button === 1 || button === 4 || button === 7 || button === 10) {
+    packAud = "someKnowl";
+  } else if (button === 2 || button === 5 || button === 8 || button === 11) {
+    packAud = "new";
+  } else {
+    return;
+  };
+
   packingList = [];
-  //filter the resource based on audience and then map those objects to new packing list
-      packingList = resources.filter(x => x.audiences[0] === "new").map(x =>  {
+  //filter the resource based on comparison of audience and then map those objects to new packing list
+      packingList = resources.filter(x => x.audiences[0] === packAud || x.audiences[1] === packAud || x.audiences[2] === packAud).map(x =>  {
       return {
       ...x,                       // This spreads the new objects into the new array
       count: x.count * multiple  // This multiplies the count of each object by a given number
