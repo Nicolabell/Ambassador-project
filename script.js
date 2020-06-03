@@ -337,7 +337,7 @@ function buttonGet () {
 }; 
 
 
-// 2. function to show appropriate packing list displayed and confirm / cancel buttons
+ // 2. function to show appropriate packing list displayed and confirm / cancel buttons
 
 function orderConf() {
 var displayOrder;
@@ -345,7 +345,7 @@ var displayOrder;
 packingList.forEach(ordered => displayOrder +=  `<p>` + ordered.count +  ' x '  + ordered.title + `</p>`);
 
 // Return variable as displayed message
-results.innerHTML = `<p>You are about to order:</p> <p>${displayOrder} Please confirm</p>
+results.innerHTML = `<p>You are about to order:</p> <p>${displayOrder} </p><p><b>Please confirm</b></p>
 <button id="confirm" role="button">Confirm</button><button id="cancel" role="button">Cancel</button>`;
 
 };
@@ -396,7 +396,4 @@ function weightCalc() {
 
 };
 
-
-//get the resources list, loop through, if the right audience isnt in the list then skip, otherwise X by the right amount depending on the case
-  //Spread the new data into an array or table?
 
