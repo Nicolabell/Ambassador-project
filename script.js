@@ -7,6 +7,8 @@ let selectSub = document.getElementById('audience');
 
 //Results message
 let results = document.getElementById('results');
+document.getElementById('results');
+
 
 
 // DATA OBJECTS
@@ -344,7 +346,7 @@ function displayResource(combined) {
 let packingList = [];
 let packWeight = 0;
 
-function buttonGet () {
+function buttonGet() {
   let button = parseInt(document.getElementsByClassName('order')[0].id);
   
 
@@ -366,7 +368,9 @@ function buttonGet () {
 
   packingList = [];
   //filter the resource based on comparison of audience and then map those objects to new packing list
-      packingList = resources.filter(x => x.audiences[0] === packAud || x.audiences[1] === packAud || x.audiences[2] === packAud).map(x =>  {
+      packingList = resources
+      .filter(x => x.audiences[0] === packAud || x.audiences[1] === packAud || x.audiences[2] === packAud)
+      .map(x =>  {
       return {
       ...x,                       // This spreads the new objects into the new array
       count: x.count * multiple,  // This multiplies the count of each object by a given number
@@ -381,15 +385,46 @@ function buttonGet () {
  // 2. function to show appropriate packing list displayed and confirm / cancel buttons
 
 function orderConf() {
-var displayOrder;
+var displayOrder = '';
 // Loop over packingList and display data nicely
-packingList.forEach(ordered => displayOrder +=  `<p>` + ordered.count +  ' x '  + ordered.title +  ' - ' + ordered.type + `</p>`);
+packingList.forEach(ordered => displayOrder 
+  +=  `<p>` 
+  + ordered.count 
+  +  ' x '  
+  + ordered.title 
+  +  ' - ' 
+  + ordered.type + `</p>`);
 
 // Return variable as displayed message
 results.innerHTML = `<p><b>You are about to order:</b></p> <p>${displayOrder}</p>
 <br>
 <p><i>Suggested donation for postage and packing: £${postage.toFixed(2)}</i></p><p><b>Please confirm</b></p>
 <button id="confirm" role="button">Confirm</button><button id="cancel" role="button">Cancel</button>`;
+
+//Confirm and cancel buttons
+let confirm = document.getElementById('confirm');
+let cancel = document.getElementById('cancel');
+
+// Confirm and cancel order  - event listeners
+
+cancel.addEventListener('click', function() {
+   results.innerHTML = `<p><b>Order cancelled. Please make another selection or return to the site.</b></p>`
+   selectMain.value = selectMain[0].value;
+    while(selectSub.options.length > 0) {
+    selectSub.options.remove(0);
+  }
+
+ });
+
+confirm.addEventListener('click', function() {
+   results.innerHTML = `<h2>Thank you for your order!</h2><p>Email address and postal address will be collected at this point</p>`
+    selectMain.value = selectMain[0].value;
+    while(selectSub.options.length > 0) {
+    selectSub.options.remove(0);
+  }
+  
+ });
+
 
 };
 
@@ -453,7 +488,6 @@ console.log(packWeight);
      console.log("none selected");
 
   }; 
-
 
 
 };
