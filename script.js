@@ -1,5 +1,5 @@
 
-// DOM ELEMENTS
+// DOM ELEMENTS ***
 
 //Selecting the menus
 let selectMain = document.getElementById('attendees');
@@ -11,7 +11,7 @@ document.getElementById('results');
 
 
 
-// DATA OBJECTS
+// DATA OBJECTS ***
 
 //Event data
 let eventSize = {
@@ -20,8 +20,6 @@ let eventSize = {
   large: ['Select your audience', 'Permaculture event', 'Some knowledge of permaculture', 'New to permaculture'],
   massive: ['Select your audience', 'Permaculture event', 'Some knowledge of permaculture', 'New to permaculture']
 }
-
-// could the above use a loop to populate the data based on the size + audience of the event? how do we keep it simple stupid?
 
 //Resource pack data
 const resourceList = [
@@ -113,13 +111,6 @@ const resourceList = [
 
 // Individual resources data
 const resources = [ 
-/*  {
-    title: "Join the Permaculture Association",
-    type: "Banner",
-    audiences: ["new", "someKnowl", "permaculture"],
-    count: 1,
-    weight: 3200
-  }, */
   {
     title: "What is permaculture?",
     type: "Leaflet",
@@ -179,34 +170,37 @@ const resources = [
 
 ];
 
+//Banners 
+const banners = [
+ {
+    title: "Join the Permaculture Association",
+    type: "Banner",
+    audiences: ["new", "someKnowl", "permaculture"],
+    count: 1,
+    weight: 3200
+  }
 
-// UI CONTROLLER
+];
 
+
+
+// UI CONTROLLER ***
 
 //Event when event size is selected = next drop down is populated
 selectMain.addEventListener('change', function() {
 	// Select option
   let selected = eventSize[this.value];
-  
   //remove additional sub menu options with while loop
   while(selectSub.options.length > 0) {
-  
   selectSub.options.remove(0);
-
   //remove previous selection from results display
   results.innerHTML = `<p>We suggest....</p>`;
-
-
  }
-
   // Gets the array from the option that was selected
   Array.from(selected).forEach(function(el) {
-
   let option = new Option(el, el);
-
   //add new child options in to the sub menu
   selectSub.appendChild(option);
-
   });
 
 });
@@ -215,30 +209,19 @@ selectMain.addEventListener('change', function() {
  // function to take the two selections and recommend the appropriate resource pack
 
  // Menu 1. selection - Event listener for when the menu selections happen
- let selectionOne;
-
- selectMain.addEventListener('change', function() {
-
+let selectionOne;
+  selectMain.addEventListener('change', function() {
   selectionOne = selectMain.options[selectMain.selectedIndex].value;
-
-  console.log(selectionOne); // only selects the first option??
-
 });
 
   
   //Menu 2. selection
-
 let selectionTwo;
 let both;
 
 selectSub.addEventListener('change', function() {
-
   selectionTwo = selectSub.options[selectSub.selectedIndex].value;
-
-  console.log(selectionTwo); 
-
    //This is a conditional ternary operator to codify the combinations of choices. 
-
     function selectionResults(a, b) {
     return selectionOne === 'small' && selectionTwo === 'Permaculture event'? 0
            : selectionOne === 'small' && selectionTwo === 'Some knowledge of permaculture' ? 1
@@ -254,7 +237,6 @@ selectSub.addEventListener('change', function() {
            : selectionOne === 'massive' && selectionTwo === 'New to permaculture' ? 11
            : 'Nothing selected';
   };
-
 
  both = selectionResults(selectionOne, selectionTwo);
  return both;
@@ -322,12 +304,14 @@ function displayResource(combined) {
       results.innerHTML = `<p>We suggest...unless it doesnt exit</p>`;
 } 
 
-  let newbutton = document.getElementsByTagName('button')[0];      //can re-use this later on, maybe return it? uhhh
+ // Listens on new confirm button for pack selection
+  let newbutton = document.getElementsByTagName('button')[0];     
   newbutton.addEventListener("click", function() {
+    // Reset packingList in case of prev selection
   while (packingList.length > 0) {
     packingList.pop();
-  } // clear packing list so it doesnt calculate again? doesnt work
-  buttonGet(); //can this be deleted?
+  }
+  buttonGet();
  })
 
 };
@@ -335,7 +319,6 @@ function displayResource(combined) {
 //displayResource(both); this returns a case
 
  // Return the suggestion to the DOM
-
  selectSub.addEventListener('change', function() {
    displayResource(both);
  });
@@ -349,7 +332,6 @@ let packWeight = 0;
 function buttonGet() {
   let button = parseInt(document.getElementsByClassName('order')[0].id);
   
-
  // 1. Create new array and multiply resources based on event size
  function packingListCreate(multiple) {
 
@@ -382,11 +364,10 @@ function buttonGet() {
 }; 
 
 
- // 2. function to show appropriate packing list displayed and confirm / cancel buttons
-
+// 2. function to show appropriate packing list displayed and confirm / cancel buttons
 function orderConf() {
 var displayOrder = '';
-// Loop over packingList and display data nicely
+ // Loop over packingList and display data nicely
 packingList.forEach(ordered => displayOrder 
   +=  `<p>` 
   + ordered.count 
@@ -395,18 +376,17 @@ packingList.forEach(ordered => displayOrder
   +  ' - ' 
   + ordered.type + `</p>`);
 
-// Return variable as displayed message
+ // Return variable as displayed message
 results.innerHTML = `<p><b>You are about to order:</b></p> <p>${displayOrder}</p>
 <br>
 <p><i>Suggested donation for postage and packing: £${postage.toFixed(2)}</i></p><p><b>Please confirm</b></p>
 <button id="confirm" role="button">Confirm</button><button id="cancel" role="button">Cancel</button>`;
 
-//Confirm and cancel buttons
+ //Confirm and cancel buttons cached
 let confirm = document.getElementById('confirm');
 let cancel = document.getElementById('cancel');
 
-// Confirm and cancel order  - event listeners
-
+ // Confirm and cancel order  - event listeners
 cancel.addEventListener('click', function() {
    results.innerHTML = `<p><b>Order cancelled. Please make another selection or return to the site.</b></p>`
    selectMain.value = selectMain[0].value;
@@ -422,7 +402,7 @@ confirm.addEventListener('click', function() {
     while(selectSub.options.length > 0) {
     selectSub.options.remove(0);
   }
-  
+
  });
 
 
@@ -450,8 +430,6 @@ console.log(packWeight);
           : 28.55;
 
  }
- console.log(postPackCalc(packWeight));
-
  postage = postPackCalc(packWeight);
 
 }
@@ -463,20 +441,16 @@ console.log(packWeight);
      console.log("small details");
      packingListCreate(2);
      weightCalc(packingList);
-     console.log(packingList);
-     console.log(packWeight);
      orderConf();
   } else if (button === 3 || button === 4 || button === 5) {
      console.log("medium details");
      packingListCreate(4);  // This is where the resources in each pack are multiplied
      weightCalc(packingList);
-     console.log(packWeight);
      orderConf(packingList);
   } else if (button === 6 || button === 7 || button === 8)  {
      console.log("large details");
      packingListCreate(8);  // This is where the resources in each pack are multiplied
      weightCalc(packingList);
-     console.log(packWeight);
      orderConf();
   } else if (button === 9 || button === 10 || button === 11)  {
      console.log("massive details");
