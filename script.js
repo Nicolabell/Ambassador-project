@@ -28,6 +28,7 @@ const resourceList = [
    title: "Small pack for those in the know",
    description: "A pack for small courses and events attended by people who have some prior knowledge of permaculture. Includes courses and membership info, plus ways to help share the benefits of permaculture.",
    img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg",
+   imgAlt: "An image of a small pack of resources",
    audience: "permaculture"
   }, 
   {
@@ -35,6 +36,7 @@ const resourceList = [
    title: "Small pack with tips on what to learn next",
    description: "A pack for small events with people who are new to permaculture",
    img: "https://freesvg.org/img/1344190736.png",
+   imgAlt: "An image of a small pack of resources",
    audience: "someKnowl"
   },
  {
@@ -42,6 +44,7 @@ const resourceList = [
    title: "Small pack for those brand new to permaculture",
    description: "A pack for small events including beginners resources",
    img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg",
+   imgAlt: "An image of a small pack of resources",
    audience: "new"
   },
    {
@@ -49,6 +52,7 @@ const resourceList = [
    title: "Medium pack for those in the know",
    description: "A medium sized pack for courses and events attended by people who have some prior knowledge of permaculture. Includes courses and membership info, plus ways to help share the benefits of permaculture.",
    img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg",
+   imgAlt: "An image of a medium sized pack of resources",
    audience: "permaculture"
   },
    {
@@ -56,6 +60,7 @@ const resourceList = [
    title: "Medium pack - up to fifty people, for those who know a bit",
    description: "This medium sized pack includes further resources for people who know a bit but what to learn more",
    img: "https://as2.ftcdn.net/jpg/01/27/32/41/500_F_127324174_QSBfDhGhWtjLjJPxB6UY9dRTn6Jo3RZJ.jpg",
+   imgAlt: "An image of a medium sized pack of resources",
    audience: "someKnowl"
   },
   {
@@ -63,6 +68,7 @@ const resourceList = [
    title: "Up to fifty people new to permaculture",
    description: "A pack for small events including beginners resources",
    img: "https://as2.ftcdn.net/jpg/01/27/32/41/500_F_127324174_QSBfDhGhWtjLjJPxB6UY9dRTn6Jo3RZJ.jpg",
+   imgAlt: "An image of a medium sized pack of resources",
    audience: "new"
   },
    {
@@ -70,6 +76,7 @@ const resourceList = [
    title: "A pack for up to 100 people who know about permaculture",
    description: "A pack for big events",
    img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg",
+   imgAlt: "An image of a large sized pack of resources",
    audience: "permaculture"
   },
    {
@@ -77,6 +84,7 @@ const resourceList = [
    title: "Big pack for those who know a bit",
    description: "This big resource pack includes further resources for people who know a bit but what to learn more",
    img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg",
+   imgAlt: "An image of a large sized pack of resources",
    audience: "someKnowl"
   },
   {
@@ -84,6 +92,7 @@ const resourceList = [
    title: "Up to 100 people - new to permaculture",
    description: "A pack for bigger events including beginners resources",
    img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg",
+   imgAlt: "An image of a large sized pack of resources",
    audience: "new"
   },
   {
@@ -91,6 +100,7 @@ const resourceList = [
    title: "Big pack for 100+ permaculture crowd",
    description: "A pack for big events",
    img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg",
+   imgAlt: "An image of a pack of resources for a large event",
    audience: "permaculture"
   },
    {
@@ -98,6 +108,7 @@ const resourceList = [
    title: "Big pack for those who know a bit",
    description: "This huge resource pack includes further resources for people who know a bit but what to learn more",
    img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg",
+   imgAlt: "An image of a pack of resources for a large event",
    audience: "someKnowl"
   },
   {
@@ -105,6 +116,7 @@ const resourceList = [
    title: "100+ people - new to permaculture",
    description: "A pack for huge events including beginners resources",
    img: "https://static.wixstatic.com/media/dcc1bf_baa1e9e07577441d8a1cb71e2e6bc176~mv2.jpg",
+   imgAlt: "An image of a pack of resources for a large event",
    audience: "new"
   }
 ];
@@ -253,7 +265,7 @@ function displayResource(combined) {
   // variable to contain results message
   let resultsHTML = `<p><b>${resourceList[combined].title}</b></p>
       <p><img src="${resourceList[combined].img}"  
-      alt="resource pack for such an event" class="pack-image"></p>
+      alt="${resourceList[combined].imgAlt}" class="pack-image"></p>
       <p>${resourceList[combined].description}</p> 
       <button class="order" id="${[combined]}">Order this pack</button>`;
   // Case for different resource pack selections
