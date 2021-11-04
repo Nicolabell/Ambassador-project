@@ -6,4 +6,6 @@ The coding standards used in this project are those developed by MDN:
 https://developer.mozilla.org/en-US/docs/MDN/Contribute/Guidelines/Code_guidelines/JavaScript
 https://developer.mozilla.org/en-US/docs/MDN/Contribute/Guidelines/Code_guidelines/CSS
 
+A netlify example of the prototype is available at: https://cranky-mirzakhani-fbf2b5.netlify.app/
+
 
